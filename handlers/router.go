@@ -10,6 +10,7 @@ func SetRouter() *http.Server {
 	r := mux.NewRouter()
 
 	r.HandleFunc("/users/{id:[0-9]+}", GetUserByIDHandler).Methods("GET")
+	r.HandleFunc("/users/{id:[0-9]+}/actions/count", CountActionsByUserID).Methods("GET")
 
 	return &http.Server{
 		Addr:    ":8080",

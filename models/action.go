@@ -21,3 +21,15 @@ func InitActions(actionData []Action) {
 		ActionsByID[action.ID] = action
 	}
 }
+
+func CountActionsByUserID(id int) int {
+	count := 0
+
+	for _, action := range Actions {
+		if action.UserID == id {
+			count++
+		}
+	}
+
+	return count
+}
