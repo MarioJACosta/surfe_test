@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"surfe_test/handlers"
 	"surfe_test/models"
 )
 
@@ -16,6 +17,10 @@ func main() {
 
 	models.InitUsers(users)
 	models.InitActions(actions)
+
+	r := handlers.SetRouter()
+	log.Println("Server running at http://localhost:8080")
+	log.Fatal(r.ListenAndServe())
 }
 
 func loadData() ([]models.User, []models.Action, error) {

@@ -19,3 +19,12 @@ func InitUsers(usersData []User) {
 		UsersByID[user.ID] = user
 	}
 }
+
+func GetUserByID(id int) *User {
+	user, found := UsersByID[id]
+	if !found {
+		return nil
+	}
+
+	return &user
+}
